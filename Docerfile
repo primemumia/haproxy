@@ -1,0 +1,9 @@
+# En güncel ve hafif sürüm
+FROM haproxy:2.8-alpine
+
+# Konfigürasyonu kopyala
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+
+# HAProxy'nin konfigürasyon dosyasını kullanarak çalışmasını sağla
+# -db: Değişkenlerin (env var) okunmasını sağlar
+CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
